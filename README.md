@@ -13,7 +13,7 @@ To help me develope, command it:
 ```
 
 ```
-    cd gitusersapp
+    cd gitreposapp
 ```
 
 ```
