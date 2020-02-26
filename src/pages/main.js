@@ -8,6 +8,8 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+
 export default class Main extends Component {
   static navigationOptions = {
     title: 'Git Users',
@@ -21,14 +23,20 @@ export default class Main extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Enter your github username</Text>
-          <Text style={styles.subTitle}>Type only the username below...</Text>
+          <View style={styles.gitMark}>
+            <Icon name="github" size={40} />
+          </View>
+          <View style={styles.titleText}>
+            <Text style={styles.title}>Enter your github username</Text>
+            <Text style={styles.subTitle}>Type only the username below...</Text>
+          </View>
         </View>
         <TextInput
           style={styles.textInput}
           placeholder="Username"
           onChangeText={username => this.setState({username})}
           value={this.state.username}
+          autoCapitalize="none"
         />
         <TouchableOpacity
           style={styles.button}
@@ -38,6 +46,7 @@ export default class Main extends Component {
             });
           }}>
           <Text style={styles.buttonText}>View</Text>
+          <Icon name="chevron-right" size={15} style={styles.nextIcon} />
         </TouchableOpacity>
       </View>
     );
@@ -53,27 +62,43 @@ const styles = StyleSheet.create({
   },
 
   titleContainer: {
-    width: '80%',
+    width: '85%',
+    height: '30%',
     marginBottom: 4,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 20,
+    padding: 15,
     borderRadius: 5,
-    backgroundColor: '#DADADA',
+    backgroundColor: '#ededed',
+    flexDirection: 'row',
+  },
+  gitMark: {
+    width: '15%',
+    alignItems: 'center',
   },
 
+  titleText: {
+    width: '70%',
+    height: '70%',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderLeftWidth: 1,
+    borderColor: '#ccc',
+    paddingHorizontal: 15,
+  },
   title: {
     padding: 5,
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: 'bold',
   },
 
   subTitle: {
-    fontSize: 15,
+    fontSize: 10,
+    color: '#888',
   },
 
   textInput: {
-    width: '80%',
+    width: '85%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
@@ -84,7 +109,8 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: '80%',
+    width: '85%',
+    flexDirection: 'row',
     margin: 4,
     padding: 10,
     borderRadius: 5,
@@ -95,6 +121,11 @@ const styles = StyleSheet.create({
 
   buttonText: {
     fontSize: 18,
-    color: '#FFF',
+    color: '#fff',
+  },
+
+  nextIcon: {
+    marginLeft: 10,
+    color: '#fff',
   },
 });
