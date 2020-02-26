@@ -84,16 +84,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     borderLeftWidth: 1,
     borderColor: '#ccc',
-    paddingHorizontal: 15,
+    paddingLeft: 15,
   },
   title: {
-    padding: 5,
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: 'bold',
+    marginBottom: 3,
   },
 
   subTitle: {
-    fontSize: 10,
+    fontSize: 11.3,
     color: '#888',
   },
 
